@@ -1,0 +1,6 @@
+在這次assignment中，利用Lab11的code與助教給的SocketSample再加上一個頁面完成。
+首先要加上一個ip_page.xml，製作出一個ip_page，那個頁面有inputIP、按鈕 Send、String ipAdd。
+再來，再onCreat裡面把inputIP、Send，用findViewById鎖定再xml檔裡面的物件，檔Button被按下的時候，利用
+ipAdd = inputIP.getText().toString()，讓輸入進來的ipAdd讀到輸入的值。
+剩下的就是用Lab11的code。
+至於socket的部分，就是用助教給的sample code完成。
