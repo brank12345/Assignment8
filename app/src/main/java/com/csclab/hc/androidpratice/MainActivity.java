@@ -133,6 +133,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return_button = (Button) findViewById(R.id.return_button);
         textResult = (TextView) findViewById(R.id.textResult);
 
+        new thread(resultStr).start();
+
         if (textResult != null) {
             //TODO: Set the result text
             textResult.setText(resultStr);
@@ -164,22 +166,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         public void run(){
             try{
                 System.out.println("Client: Waiting to connect...");
-                int serverPort = 2000;
+                int serverPort = 8888;
 
                 // Create socket connect server
+                System.out.println(ipAdd);
                 Socket socket = new Socket(ipAdd, serverPort);
                 System.out.println("Connected!");
 
                 // Create stream communicate with server
                 OutputStream out = socket.getOutputStream();
-                String strToSend = "Hi I'm client";
+                String strToSend = string_Send;
 
                 byte[] sendStrByte = new byte[1024];
                 System.arraycopy(strToSend.getBytes(), 0, sendStrByte, 0, strToSend.length());
                 out.write(sendStrByte);
 
             }catch (Exception e){
-                System.out.println("Error" + e.getMessage());
+                System.out.println("Error " + e.getMessage());
             }
         }
     }
